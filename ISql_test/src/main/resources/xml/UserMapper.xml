@@ -1,0 +1,12 @@
+<mapper namespace="user">
+
+    <select id="selectList" resultType="self.pojo.User">
+        select * from user
+    </select>
+
+    <select id="selectOne" resultType="self.pojo.User" parameterType="self.pojo.User">
+        select * from user where id=#{id}
+    </select>
+
+
+</mapper>

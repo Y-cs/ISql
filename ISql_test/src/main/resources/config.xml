@@ -1,0 +1,16 @@
+<config>
+
+    <dataSourse>
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value=""/>
+        <property name="username" value=""/>
+        <property name="password" value=""/>
+    </dataSourse>
+
+    <Mappers>
+        <Mapper result="xml/UserMapper.xml"/>
+        <Mapper result="xml/ProductMapper.xml"/>
+    </Mappers>
+
+
+</config>
