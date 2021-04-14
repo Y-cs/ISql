@@ -2,15 +2,15 @@
 
     <dataSourse>
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value=""/>
-        <property name="username" value=""/>
-        <property name="password" value=""/>
+        <property name="url" value="jdbc:mysql://118.24.126.49:3306/test"/>
+        <property name="username" value="root"/>
+        <property name="password" value="ycs@1996515"/>
     </dataSourse>
 
-    <Mappers>
-        <Mapper result="xml/UserMapper.xml"/>
-        <Mapper result="xml/ProductMapper.xml"/>
-    </Mappers>
+    <mappers>
+        <mapper result="xml/UserMapper.xml"/>
+        <mapper result="xml/ProductMapper.xml"/>
+    </mappers>
 
 
 </config>

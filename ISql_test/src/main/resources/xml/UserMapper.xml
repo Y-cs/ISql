@@ -1,10 +1,10 @@
-<mapper namespace="user">
+<mapper namespace="self.dao.UserDao">
 
-    <select id="selectList" resultType="self.pojo.User">
+    <select id="findAll" resultType="self.pojo.User">
         select * from user
     </select>
 
-    <select id="selectOne" resultType="self.pojo.User" parameterType="self.pojo.User">
+    <select id="findByCondition" resultType="self.pojo.User" parameterType="self.pojo.User">
         select * from user where id=#{id}
     </select>
 

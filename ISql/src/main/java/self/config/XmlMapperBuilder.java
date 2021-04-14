@@ -7,8 +7,6 @@ import org.dom4j.Namespace;
 import org.dom4j.io.SAXReader;
 import self.pojo.Configuration;
 import self.pojo.MappedStatement;
-import sun.jvm.hotspot.debugger.posix.elf.ELFSectionHeader;
-import sun.security.krb5.Config;
 
 import java.io.InputStream;
 import java.util.List;

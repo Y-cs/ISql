@@ -1,6 +1,7 @@
 package self.pojo;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ public class Configuration {
 
     private DataSource dataSource;
 
-    private Map<String, MappedStatement> mappersMap;
+    private Map<String, MappedStatement> mappersMap = new HashMap<String, MappedStatement>();
 
 
     /*

@@ -10,8 +10,8 @@ public class Resources {
 
 
     public static InputStream getResourceAsSteam(String path) {
-
-        return null;
+        InputStream resourceAsStream = Resources.class.getClassLoader().getResourceAsStream(path);
+        return resourceAsStream;
     }
 
 

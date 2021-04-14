@@ -14,13 +14,13 @@ import java.io.InputStream;
 public class SqlSessionFactoryBuilder {
 
     public SqlSessionFactory build(InputStream in) throws DocumentException, PropertyVetoException {
-
+        //解析配置
         XmlConfigBuilder xmlConfigBuilder = new XmlConfigBuilder();
         Configuration configuration = xmlConfigBuilder.parseConfig(in);
+        //定义sqlSession
+        DefaultSqlSessionFactory defaultSqlSessionFactory = new DefaultSqlSessionFactory(configuration);
 
-
-
-
+        return defaultSqlSessionFactory;
     }
 
 

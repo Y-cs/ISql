@@ -34,8 +34,8 @@ public class XmlConfigBuilder {
         List<Element> propertyElements = rootElement.selectNodes("//property");
         Properties properties = new Properties();
         for (Element element : propertyElements) {
-            String name = element.attributeValue("name");
             String value = element.attributeValue("value");
+            String name = element.attributeValue("name");
             properties.setProperty(name, value);
         }
 
@@ -46,7 +46,6 @@ public class XmlConfigBuilder {
         comboPooledDataSource.setPassword(properties.getProperty("password"));
 
         configuration.setDataSource(comboPooledDataSource);
-        configuration.setMappersMap(new HashMap<String, MappedStatement>());
 
         List<Element> mapperElements = rootElement.selectNodes("//mapper");
         for (Element mapperElement : mapperElements) {
@@ -57,8 +56,6 @@ public class XmlConfigBuilder {
 
 
         }
-
-
         return configuration;
     }
 
