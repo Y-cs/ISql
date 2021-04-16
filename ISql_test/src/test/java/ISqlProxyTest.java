@@ -34,9 +34,9 @@ public class ISqlProxyTest {
         User user = new User();
         user.setId(1);
         user.setUsername("lucy");
-        System.out.println(userMapper.findByCondition(user));
+        userMapper.findByCondition(user);
         System.out.println("------------->selectList");
-        System.out.println(userMapper.findAll());
+        userMapper.findAll();
     }
 
     @Test
