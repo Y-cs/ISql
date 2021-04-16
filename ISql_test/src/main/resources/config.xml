@@ -8,6 +8,7 @@
     </dataSourse>
 
     <mappers>
+        <package result="self.dao"/>
         <mapper result="xml/UserMapper.xml"/>
         <mapper result="xml/ProductMapper.xml"/>
     </mappers>

@@ -4,6 +4,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
+import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
 import self.io.Resources;
 import self.pojo.Configuration;
@@ -34,8 +35,7 @@ public class XmlConfigBuilder {
 
         readAndSetDataSource(rootElement.selectNodes("//property"));
         //mapper解析
-        readAndSetMappers(rootElement.selectNodes("//mapper"));
-
+        readAndSetMappers(rootElement.selectNodes("//mappers"));
         return configuration;
     }
 
@@ -57,11 +57,22 @@ public class XmlConfigBuilder {
 
     private void readAndSetMappers(List<? extends Element> mapperElements) throws DocumentException {
         for (Element mapperElement : mapperElements) {
-            String result = mapperElement.attributeValue("result");
-            InputStream resourceAsSteam = Resources.getResourceAsSteam(result);
-            XmlMapperBuilder xmlMapperBuilder = new XmlMapperBuilder(configuration);
-            xmlMapperBuilder.parse(resourceAsSteam);
+            List<Element> packages = mapperElement.selectNodes("//package");
+            for (Element pkg :packages){
+                String result = pkg.attributeValue("result");
+
+            }
+
+            List<Element> mappers = mapperElement.selectNodes("//mapper");
+            for (Element mapper : mappers) {
+                String result = mapper.attributeValue("result");
+                InputStream resourceAsSteam = Resources.getResourceAsSteam(result);
+                XmlMapperBuilder xmlMapperBuilder = new XmlMapperBuilder(configuration);
+                xmlMapperBuilder.parse(resourceAsSteam);
+            }
         }
+
+
     }
 
 
