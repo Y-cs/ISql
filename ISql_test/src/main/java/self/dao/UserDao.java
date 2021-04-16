@@ -1,9 +1,7 @@
 package self.dao;
 
-import org.dom4j.DocumentException;
 import self.pojo.User;
 
-import java.beans.PropertyVetoException;
 import java.util.List;
 
 /**
@@ -16,7 +14,10 @@ public interface UserDao {
 
     User findByCondition(User user) throws Exception;
 
+    int insertUser(User user);
 
+    int updateUser(User user);
 
+    int deleteUser(User user);
 
 }

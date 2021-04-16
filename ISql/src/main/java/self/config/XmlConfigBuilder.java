@@ -21,7 +21,7 @@ import java.util.Properties;
  */
 public class XmlConfigBuilder {
 
-    private Configuration configuration;
+    private final Configuration configuration;
 
     public XmlConfigBuilder() {
         configuration = new Configuration();
@@ -31,32 +31,37 @@ public class XmlConfigBuilder {
 
         Document document = new SAXReader().read(in);
         Element rootElement = document.getRootElement();
-        List<Element> propertyElements = rootElement.selectNodes("//property");
+
+        readAndSetDataSource(rootElement.selectNodes("//property"));
+        //mapper解析
+        readAndSetMappers(rootElement.selectNodes("//mapper"));
+
+        return configuration;
+    }
+
+    private void readAndSetDataSource(List<? extends Element> propertyElements) throws PropertyVetoException {
         Properties properties = new Properties();
         for (Element element : propertyElements) {
             String value = element.attributeValue("value");
             String name = element.attributeValue("name");
             properties.setProperty(name, value);
         }
-
+        //处理连接信息
         ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
         comboPooledDataSource.setDriverClass(properties.getProperty("driver"));
         comboPooledDataSource.setJdbcUrl(properties.getProperty("url"));
         comboPooledDataSource.setUser(properties.getProperty("username"));
         comboPooledDataSource.setPassword(properties.getProperty("password"));
-
         configuration.setDataSource(comboPooledDataSource);
+    }
 
-        List<Element> mapperElements = rootElement.selectNodes("//mapper");
+    private void readAndSetMappers(List<? extends Element> mapperElements) throws DocumentException {
         for (Element mapperElement : mapperElements) {
             String result = mapperElement.attributeValue("result");
             InputStream resourceAsSteam = Resources.getResourceAsSteam(result);
             XmlMapperBuilder xmlMapperBuilder = new XmlMapperBuilder(configuration);
             xmlMapperBuilder.parse(resourceAsSteam);
-
-
         }
-        return configuration;
     }
 
 

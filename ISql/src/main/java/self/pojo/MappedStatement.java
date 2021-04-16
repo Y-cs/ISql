@@ -10,6 +10,7 @@ public class MappedStatement {
     private String resultType;
     private String parameterType;
     private String sql;
+    private MapperTypeEnum mapperType;
 
     public String getId() {
         return id;
@@ -41,5 +42,24 @@ public class MappedStatement {
 
     public void setSql(String sql) {
         this.sql = sql;
+    }
+
+    public MapperTypeEnum getMapperType() {
+        return mapperType;
+    }
+
+    public void setMapperType(MapperTypeEnum mapperType) {
+        this.mapperType = mapperType;
+    }
+
+    @Override
+    public String toString() {
+        return "MappedStatement{" +
+                "id='" + id + '\'' +
+                ", resultType='" + resultType + '\'' +
+                ", parameterType='" + parameterType + '\'' +
+                ", sql='" + sql + '\'' +
+                ", mapperType=" + mapperType +
+                '}';
     }
 }

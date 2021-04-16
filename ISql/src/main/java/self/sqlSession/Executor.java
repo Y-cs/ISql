@@ -12,6 +12,43 @@ import java.util.List;
  */
 public interface Executor {
 
-    <E> List<E> query(Configuration configuration, MappedStatement mappedStatement,Object... params) throws SQLException, ClassNotFoundException, Exception;
+    /**
+     * query
+     * @param configuration
+     * @param mappedStatement
+     * @param params
+     * @param <E>
+     * @return
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     * @throws Exception
+     */
+    <E> List<E> query(Configuration configuration, MappedStatement mappedStatement, Object... params) throws SQLException, ClassNotFoundException, Exception;
 
+    /**
+     * update
+     * @param configuration
+     * @param mappedStatement
+     * @param params
+     * @return
+     */
+    int update(Configuration configuration, MappedStatement mappedStatement, Object... params) throws SQLException, ClassNotFoundException, NoSuchFieldException, IllegalAccessException;
+
+    /**
+     * insert
+     * @param configuration
+     * @param mappedStatement
+     * @param params
+     * @return
+     */
+    int insert(Configuration configuration, MappedStatement mappedStatement, Object... params) throws SQLException, NoSuchFieldException, ClassNotFoundException, IllegalAccessException;
+
+    /**
+     * delete
+     * @param configuration
+     * @param mappedStatement
+     * @param params
+     * @return
+     */
+    int delete(Configuration configuration, MappedStatement mappedStatement, Object... params) throws SQLException, NoSuchFieldException, ClassNotFoundException, IllegalAccessException;
 }

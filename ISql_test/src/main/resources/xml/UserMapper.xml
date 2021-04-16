@@ -8,5 +8,15 @@
         select * from user where id=#{id}
     </select>
 
+    <insert id="insertUser" parameterType="self.pojo.User">
+        insert into user(id,username,password) values(#{id},#{username},#{password})
+    </insert>
 
+    <update id="updateUser" parameterType="self.pojo.User">
+        update user set username=#{username} , password=#{password} where id=#{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="self.pojo.User">
+        delete from user where id=#{id}
+    </delete>
 </mapper>
