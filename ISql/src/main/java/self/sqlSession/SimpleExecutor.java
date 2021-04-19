@@ -60,9 +60,6 @@ public class SimpleExecutor implements Executor, SqlSessionHook {
             beginExecuteHook(connection, mappedStatement, params);
             //获取sql
             String sql = mappedStatement.getSql();
-            //获取参数类型
-            String parameterType = mappedStatement.getParameterType();
-            Class<?> parameterClass = ReflexUtil.getClassType(parameterType);
             //预处理
             BoundSql boundSql = BoundSql.getBoundSql(sql);
             PreparedStatement preparedStatement = connection.prepareStatement(boundSql.getSql());

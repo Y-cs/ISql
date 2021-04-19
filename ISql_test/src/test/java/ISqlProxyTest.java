@@ -8,6 +8,7 @@ import self.sqlSession.SqlSession;
 import self.sqlSession.SqlSessionFactory;
 import self.sqlSession.SqlSessionFactoryBuilder;
 
+import java.beans.IntrospectionException;
 import java.beans.PropertyVetoException;
 import java.io.InputStream;
 
@@ -20,7 +21,7 @@ public class ISqlProxyTest {
     UserDao userMapper = null;
 
     @Before
-    public void before() throws PropertyVetoException, DocumentException {
+    public void before() throws PropertyVetoException, DocumentException, IntrospectionException, ClassNotFoundException, NoSuchMethodException {
         InputStream resourceAsSteam = Resources.getResourceAsSteam("config.xml");
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(resourceAsSteam);

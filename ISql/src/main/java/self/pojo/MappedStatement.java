@@ -7,8 +7,9 @@ package self.pojo;
 public class MappedStatement {
 
     private String id;
+    private String globalId;
     private String resultType;
-    private String parameterType;
+    private ParameterType[] parameterTypes;
     private String sql;
     private MapperTypeEnum mapperType;
 
@@ -20,6 +21,14 @@ public class MappedStatement {
         this.id = id;
     }
 
+    public String getGlobalId() {
+        return globalId;
+    }
+
+    public void setGlobalId(String globalId) {
+        this.globalId = globalId;
+    }
+
     public String getResultType() {
         return resultType;
     }
@@ -28,12 +37,12 @@ public class MappedStatement {
         this.resultType = resultType;
     }
 
-    public String getParameterType() {
-        return parameterType;
+    public ParameterType[] getParameterTypes() {
+        return parameterTypes;
     }
 
-    public void setParameterType(String parameterType) {
-        this.parameterType = parameterType;
+    public void setParameterTypes(ParameterType[] parameterTypes) {
+        this.parameterTypes = parameterTypes;
     }
 
     public String getSql() {
@@ -52,14 +61,7 @@ public class MappedStatement {
         this.mapperType = mapperType;
     }
 
-    @Override
-    public String toString() {
-        return "MappedStatement{" +
-                "id='" + id + '\'' +
-                ", resultType='" + resultType + '\'' +
-                ", parameterType='" + parameterType + '\'' +
-                ", sql='" + sql + '\'' +
-                ", mapperType=" + mapperType +
-                '}';
+    public String getParameterType() {
+        return null;
     }
 }

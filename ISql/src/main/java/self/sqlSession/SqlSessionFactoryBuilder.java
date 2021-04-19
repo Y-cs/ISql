@@ -4,6 +4,7 @@ import org.dom4j.DocumentException;
 import self.config.XmlConfigBuilder;
 import self.pojo.Configuration;
 
+import java.beans.IntrospectionException;
 import java.beans.PropertyVetoException;
 import java.io.InputStream;
 
@@ -13,7 +14,7 @@ import java.io.InputStream;
  */
 public class SqlSessionFactoryBuilder {
 
-    public SqlSessionFactory build(InputStream in) throws DocumentException, PropertyVetoException {
+    public SqlSessionFactory build(InputStream in) throws DocumentException, PropertyVetoException, IntrospectionException, ClassNotFoundException, NoSuchMethodException {
         //解析配置
         XmlConfigBuilder xmlConfigBuilder = new XmlConfigBuilder();
         Configuration configuration = xmlConfigBuilder.parseConfig(in);

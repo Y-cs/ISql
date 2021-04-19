@@ -15,6 +15,16 @@ public class Configuration {
 
     private Map<String, MappedStatement> mappersMap = new HashMap<String, MappedStatement>();
 
+    private Map<String,ClassMapper> classMapperMap=new HashMap<>();
+
+    public Map<String, ClassMapper> getClassMapperMap() {
+        return classMapperMap;
+    }
+
+    public void setClassMapperMap(Map<String, ClassMapper> classMapperMap) {
+        this.classMapperMap = classMapperMap;
+    }
+
 
     /*
         private String driver;
