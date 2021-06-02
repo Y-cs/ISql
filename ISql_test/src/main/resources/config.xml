@@ -3,8 +3,8 @@
     <dataSourse>
         <property name="driver" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://118.24.126.49:3306/test"/>
-        <property name="username" value="root"/>
-        <property name="password" value="ycs@1996515"/>
+        <property name="username" value="XXXXX"/>
+        <property name="password" value="XXXX"/>
     </dataSourse>
 
     <mappers>
